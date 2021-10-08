@@ -18,8 +18,8 @@ Original file is located at
 
 get_ipython().system_raw('./ngrok http 8501 &')
 
-!curl -s http://localhost:4040/api/tunnels | python3 -c \
-    'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
+# !curl -s http://localhost:4040/api/tunnels | python3 -c \
+#     'import sys, json; print("Execute the next cell and the go to the following URL: " +json.load(sys.stdin)["tunnels"][0]["public_url"])'
 
 # !streamlit run "/content/drive/MyDrive/Colab Notebooks/streamlit/streamlit_practice.py"
 !streamlit run "https://github.com/vikaskftpl/streamlit/blob/main/streamlit_practice.py"
