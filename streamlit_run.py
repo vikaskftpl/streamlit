@@ -13,7 +13,7 @@ Original file is located at
 # drive.mount('/content/drive')
 # %cd "/content/drive/MyDrive/Colab Notebooks/streamlit/"
 
-!wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
+# !wget https://bin.equinox.io/c/4VmDzA7iaHb/ngrok-stable-linux-amd64.zip
 !unzip ngrok-stable-linux-amd64.zip
 
 get_ipython().system_raw('./ngrok http 8501 &')
