@@ -10,6 +10,7 @@
 #import torch
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 import streamlit as st
+import pandas as pd
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
@@ -35,6 +36,12 @@ if st.button('Click to get AI Reviews'):
         translated = model.generate(**batch,max_length=60,num_beams=10, num_return_sequences=10, temperature=1.5)
         tgt_text = tokenizer.batch_decode(translated, skip_special_tokens=True)
         st.write('', str(tgt_text))#for streamlit
+        
+        contentDF = tgt_text
+        dataframeFinal = pd.DataFrame(contentDF)
+        csv = dataframeFinal.to_csv(index=True)
+
+        st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
 else: pass
         
 num_return_sequences = 10
