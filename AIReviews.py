@@ -46,8 +46,11 @@ else: pass
 
 
 if st.button('Clear the sample AI review'):
-    tgt_text == ''
-    st.write('Sample review has been')     
+    if tgt_text == '':
+        st.write('Nothing to clear. Enter text to get AI Reviews')
+     else:
+        clear_on_submit = True 
+        st.write('Sample review has been cleared')     
 else: pass
 
 
