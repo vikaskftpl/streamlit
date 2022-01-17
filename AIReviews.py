@@ -44,16 +44,5 @@ if st.button('Click to get AI Reviews'):
         st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
 else: pass
 
-
-if st.button('Clear the sample AI review'):
-    if tgt_text == '':
-        st.write('Nothing to clear. Enter text to get AI Reviews')
-     else:
-        clear_on_submit = True 
-        st.write('Sample review has been cleared')     
-else: pass
-
-
-
 num_return_sequences = 10
 num_beams = 10
