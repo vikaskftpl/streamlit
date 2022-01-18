@@ -2,8 +2,6 @@
 # coding: utf-8
 
 # In[ ]:
-
-
 from transformers import MBartForConditionalGeneration, MBart50Tokenizer
 import streamlit as st #for streamlit
 
@@ -29,4 +27,3 @@ if st.button('Translate to English'):#for streamlit
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
 else: pass
-
