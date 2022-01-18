@@ -45,12 +45,11 @@ if st.button('Click to get AI Reviews'):
         
         #st.button('Clear text field')
         text = st.empty()
-        value = "default value"
-        if st.button('reset textarea'):
-            
+        #value = "default value"
+        if st.button('Clear output'):
             value = "new value"
 
-        text.text_area("here's my text", value)
+        #text.text_area("here's my text", value)
         
 else: pass
    
