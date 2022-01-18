@@ -45,7 +45,7 @@ if st.button('Text to SPEECH'):#for streamlit
         
         audio_file = open("welcome.mp3",'rb')
         audio_bytes = audio_file.read()
-        st.audio(audio_bytes, format='audio/ogg')       
+        st.audio(audio_bytes, format='audio/ogg', start_time=0)       
         f.close()
       
 else: pass
