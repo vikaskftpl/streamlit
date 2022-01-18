@@ -48,6 +48,7 @@ if st.button('Click to get AI Reviews'):
         if st.button('reset textarea'):
             value = ''
         st.text_area('stuff', value)
+        else: pass
         
 else: pass
    
