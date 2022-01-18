@@ -47,6 +47,7 @@ if st.button('Click to get AI Reviews'):
         #text = st.empty()
         #value = "default value"
         if st.button('Clear output'):
+            st.text_area(value = '').empty()
             tgt_text = st.empty()
             #value = "new value"
 
