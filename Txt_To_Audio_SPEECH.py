@@ -10,7 +10,7 @@ from playsound import playsound
 
 from streamlit import caching
 caching.clear_cache()
-@st.cache(suppress_st_warning=True)
+#@st.cache(suppress_st_warning=True)
 
 st.title('Listen the ENTIRE text')
 
