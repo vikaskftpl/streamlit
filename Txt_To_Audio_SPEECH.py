@@ -1,13 +1,16 @@
 #!pip install playsound  
 #!pip install pyttsx3  
 #!pip install gTTS
+
+
+
+import streamlit as st
+import gtts
+from playsound import playsound 
+
 from streamlit import caching
 caching.clear_cache()
 @st.cache(suppress_st_warning=True)
-
-import gtts
-import streamlit as st
-from playsound import playsound 
 
 st.title('Listen the ENTIRE text')
 
