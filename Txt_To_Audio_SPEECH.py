@@ -34,16 +34,16 @@ if st.button('Text to SPEECH'):#for streamlit
         
         
         from gtts import gTTS
-        from tempfile import TemporaryFile
+        #from tempfile import TemporaryFile
         #tts = gTTS(text='Hello', lang='en')
-        f = TemporaryFile()
-        t1.write_to_fp(f)
+        #f = TemporaryFile()
+        #t1.write_to_fp(f)
         #Play f
         #f.close()
 
 
         
-        audio_file = open(f)
+        audio_file = open(t1,'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg')       
         f.close()
