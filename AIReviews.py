@@ -12,6 +12,10 @@ from transformers import PegasusForConditionalGeneration, PegasusTokenizer
 import streamlit as st
 import pandas as pd
 
+def clear_form():
+    st.session_state["foo"] = ""
+    st.session_state["bar"] = ""
+
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
 def download_model():
@@ -43,6 +47,12 @@ if st.button('Click to get AI Reviews'):
 
         st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
 else: pass
-
+with st.form("myform"):
+    clear = st.form_submit_button(label="Clear", on_click=clear_form)
+    
+if clear:
+    st.write('Cleared')
+    
+    
 num_return_sequences = 10
 num_beams = 10
