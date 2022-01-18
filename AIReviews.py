@@ -47,8 +47,7 @@ if st.button('Click to get AI Reviews'):
         value = "default"
         if st.button('reset textarea'):
             value = ''
-
-st.text_area('stuff', value)
+        st.text_area('stuff', value)
         
 else: pass
    
