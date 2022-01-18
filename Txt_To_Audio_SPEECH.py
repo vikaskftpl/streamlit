@@ -1,8 +1,7 @@
 #!pip install playsound  
 #!pip install pyttsx3  
 #!pip install gTTS
-import gtts  
-
+import gtts
 import streamlit as st
 from playsound import playsound 
 
@@ -19,8 +18,7 @@ if st.button('Text to SPEECH'):#for streamlit
     if text == '':
         #for streamlit
         st.write('Please enter Hindi text for translation') #for streamlit
-    else:
-        
+    else:        
         #with open('text', 'r') as file:
         data = text.replace('\n', '')
         
@@ -34,6 +32,5 @@ if st.button('Text to SPEECH'):#for streamlit
         audio_file = open("welcome.mp3",'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg', start_time=0)       
-        st.close()
-      
+        st.close()      
 else: pass
