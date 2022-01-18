@@ -28,24 +28,12 @@ if st.button('Text to SPEECH'):#for streamlit
         fhand[0:100]
         t1 = gtts.gTTS(fhand,lang = 'hi')
         # save the audio file
-        t1.save("welcome.mp3") 
-        #from IPython.display import Audio
-        #Audio('welcome.mp3')
-        
-        
+        t1.save("welcome.mp3")
         from gtts import gTTS
-        #from tempfile import TemporaryFile
-        #tts = gTTS(text='Hello', lang='en')
-        #f = TemporaryFile()
-        #t1.write_to_fp(f)
-        #Play f
-        #f.close()
-
-
         
         audio_file = open("welcome.mp3",'rb')
         audio_bytes = audio_file.read()
         st.audio(audio_bytes, format='audio/ogg', start_time=0)       
-        f.close()
+        st.close()
       
 else: pass
