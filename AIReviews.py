@@ -44,11 +44,13 @@ if st.button('Click to get AI Reviews'):
         st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
         
         #st.button('Clear text field')
-        value = "default"
+        text = st.empty()
+        value = "default value"
         if st.button('reset textarea'):
-            value = ''
-        st.text_area('stuff', value)
-        else: pass
+            
+            value = "new value"
+
+        text.text_area("here's my text", value)
         
 else: pass
    
