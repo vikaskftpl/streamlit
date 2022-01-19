@@ -43,9 +43,8 @@ if st.button('Click to get AI Reviews'):
 
         st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
         
-
-if st.button('Clear output'):
-    st.text_area.empty()
+    if st.button('Clear output'):
+        st.text_area.empty()
 #else: pass
         
 else: pass
