@@ -46,7 +46,7 @@ if st.button('Click to get AI Reviews'):
 
 if st.button('Clear output'):
     st.text_area.empty()
-else: pass
+#else: pass
         
 else: pass
    
