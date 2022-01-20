@@ -93,7 +93,7 @@ if st.button('Get Summary'):#for streamlit
           for sent in sentence_tokens:
             
             for word in sent:
-              if word.words.lower() in word_frequencies.keys():
+              if word.text.lower() in word_frequencies.keys():
                 
                 if sent not in sentence_scores.keys():
                   
