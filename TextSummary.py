@@ -3,7 +3,18 @@
 
 # In[ ]:
 import streamlit as st #for streamlit
+from nltk.tokenize import word_tokenize
+import nltk
+nltk.download('punkt')
 
+from nltk.corpus import stopwords
+stopwordlist = list(stopwords.words('english'))
+
+import spacy
+from spacy.lang.en.stop_words import STOP_WORDS
+from string import punctuation
+        
+        
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 # def download_model():
 #     model_name = "facebook/mbart-large-50-many-to-many-mmt"
@@ -24,17 +35,17 @@ if st.button('Get Summary'):#for streamlit
 #         encoded_hindi_text = tokenizer(text, return_tensors="pt")
 #         generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["en_XX"])
 #         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
-          from nltk.tokenize import word_tokenize
-          import nltk
-          nltk.download('punkt')
+#         from nltk.tokenize import word_tokenize
+#         import nltk
+#         nltk.download('punkt')
           words = word_tokenize(text)
           nltk.download('stopwords')
-          from nltk.corpus import stopwords
-          stopwordlist = list(stopwords.words('english'))
+#         from nltk.corpus import stopwords
+#         stopwordlist = list(stopwords.words('english'))
 
-          import spacy
-          from spacy.lang.en.stop_words import STOP_WORDS
-          from string import punctuation
+#         import spacy
+#         from spacy.lang.en.stop_words import STOP_WORDS
+#         from string import punctuation
 
           stopwords = list(STOP_WORDS)
           stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
