@@ -16,6 +16,14 @@ from string import punctuation
 
 import en_core_web_sm
 nlp = en_core_web_sm.load()
+nltk.download('stopwords')
+
+stopwords = list(STOP_WORDS)
+stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
+
+nlp = spacy.load('en_core_web_sm')
+
+from heapq import nlargest
         
         
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
@@ -42,7 +50,7 @@ if st.button('Get Summary'):#for streamlit
 #         import nltk
 #         nltk.download('punkt')
           words = word_tokenize(text)
-          nltk.download('stopwords')
+          #nltk.download('stopwords')
 #         from nltk.corpus import stopwords
 #         stopwordlist = list(stopwords.words('english'))
 
@@ -50,10 +58,10 @@ if st.button('Get Summary'):#for streamlit
 #         from spacy.lang.en.stop_words import STOP_WORDS
 #         from string import punctuation
 
-          stopwords = list(STOP_WORDS)
-          stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
+          #stopwords = list(STOP_WORDS)
+          #stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
 
-          nlp = spacy.load('en_core_web_sm')
+          #nlp = spacy.load('en_core_web_sm')
           doc = nlp(text)
 
           tokens = [token.text for token in doc]
@@ -93,7 +101,7 @@ if st.button('Get Summary'):#for streamlit
 
                   sentence_scores[sent] += word_frequencies[word.text.lower()]
 
-          from heapq import nlargest
+          #from heapq import nlargest
           select_length = int(len(sentence_tokens)*.3) #selecting only 10% of the sentences
           summary = nlargest(select_length,sentence_scores,key = sentence_scores.get)
           final_summary = [word.text for word in summary]
