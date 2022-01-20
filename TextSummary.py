@@ -3,6 +3,15 @@
 
 # In[ ]:
 import streamlit as st #for streamlit
+
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+# def download_model():
+#     model_name = "facebook/mbart-large-50-many-to-many-mmt"
+#     model = MBartForConditionalGeneration.from_pretrained(model_name)
+#     tokenizer = MBart50Tokenizer.from_pretrained(model_name)
+#     return model, tokenizer
+
+
 from nltk.tokenize import word_tokenize
 import nltk
 nltk.download('punkt')
@@ -26,12 +35,7 @@ nlp = spacy.load('en_core_web_sm')
 from heapq import nlargest
         
         
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
-# def download_model():
-#     model_name = "facebook/mbart-large-50-many-to-many-mmt"
-#     model = MBartForConditionalGeneration.from_pretrained(model_name)
-#     tokenizer = MBart50Tokenizer.from_pretrained(model_name)
-#     return model, tokenizer
+
 
 st.title('Text Summary')#for streamlit
 text1 = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
