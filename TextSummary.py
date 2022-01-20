@@ -99,5 +99,5 @@ if st.button('Get Summary'):#for streamlit
           final_summary = [word.text for word in summary]
           summary = ' '.join(final_summary)
           #st.write('', str(summary).strip('][\''))#for streamlit
-          st.write(summary)#for streamlit
+          st.write('', str(summary))#for streamlit
 else: pass
