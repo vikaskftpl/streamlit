@@ -17,7 +17,7 @@ import nltk
 #nltk.download('punkt')
 
 # from nltk.corpus import stopwords
-# stopwordlist = list(stopwords.words('english'))
+stopwordlist = list(stopwords.words('english'))
 
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
