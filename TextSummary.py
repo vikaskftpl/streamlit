@@ -13,6 +13,9 @@ stopwordlist = list(stopwords.words('english'))
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
+
+import en_core_web_sm
+nlp = en_core_web_sm.load()
         
         
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
