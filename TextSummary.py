@@ -15,7 +15,7 @@ from spacy.lang.en.stop_words import STOP_WORDS
 from string import punctuation
         
         
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+#@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 # def download_model():
 #     model_name = "facebook/mbart-large-50-many-to-many-mmt"
 #     model = MBartForConditionalGeneration.from_pretrained(model_name)
