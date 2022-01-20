@@ -34,7 +34,9 @@ from heapq import nlargest
 #     return model, tokenizer
 
 st.title('Text Summary')#for streamlit
-text = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
+text1 = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
+text = text1.replace("\ufeff", "")
+
 #model, tokenizer = download_model()#for streamlit
 
 if st.button('Get Summary'):#for streamlit
@@ -62,22 +64,22 @@ if st.button('Get Summary'):#for streamlit
           #stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
 
           #nlp = spacy.load('en_core_web_sm')
-          doc = nlp(words)
+          doc = nlp(text)
 
-          tokens = [token.words for token in doc]
+          tokens = [token.text for token in doc]
 
           punctuation = punctuation + '\n'
           word_frequencies = {} #making a dictionary
           for word in doc:
             
-            if word.words.lower() not in punctuation:
+            if word.text.lower() not in punctuation:
               
-              if word.words not in word_frequencies.keys():
+              if word.text not in word_frequencies.keys():
                 
-                word_frequencies[word.words] =1
+                word_frequencies[word.text] =1
                 
               else:
-                word_frequencies[word.words] +=1 #if any word is present more than 1 time
+                word_frequencies[word.text] +=1 #if any word is present more than 1 time
 
           max_frequency = max(word_frequencies.values())
 
@@ -95,16 +97,16 @@ if st.button('Get Summary'):#for streamlit
                 
                 if sent not in sentence_scores.keys():
                   
-                  sentence_scores[sent] = word_frequencies[word.words.lower()]
+                  sentence_scores[sent] = word_frequencies[word.text.lower()]
                 else:
                   
 
-                  sentence_scores[sent] += word_frequencies[word.words.lower()]
+                  sentence_scores[sent] += word_frequencies[word.text.lower()]
 
           #from heapq import nlargest
           select_length = int(len(sentence_tokens)*.3) #selecting only 10% of the sentences
           summary = nlargest(select_length,sentence_scores,key = sentence_scores.get)
-          final_summary = [word.words for word in summary]
+          final_summary = [word.text for word in summary]
           summary = ' '.join(final_summary)
           #st.write('', str(summary).strip('][\''))#for streamlit
           st.write('', str(summary))#for streamlit
