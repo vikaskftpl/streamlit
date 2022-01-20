@@ -14,10 +14,10 @@ import streamlit as st #for streamlit
 
 from nltk.tokenize import word_tokenize
 import nltk
-nltk.download('punkt')
+#nltk.download('punkt')
 
-from nltk.corpus import stopwords
-stopwordlist = list(stopwords.words('english'))
+# from nltk.corpus import stopwords
+# stopwordlist = list(stopwords.words('english'))
 
 import spacy
 from spacy.lang.en.stop_words import STOP_WORDS
@@ -25,7 +25,7 @@ from string import punctuation
 
 import en_core_web_sm
 nlp = en_core_web_sm.load()
-nltk.download('stopwords')
+# nltk.download('stopwords')
 
 stopwords = list(STOP_WORDS)
 stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--','.',':','?',';''[',']','``','o','’','“','”','”','[',';'])
@@ -72,37 +72,24 @@ if st.button('Get Summary'):#for streamlit
           punctuation = punctuation + '\n'
           word_frequencies = {} #making a dictionary
           for word in doc:
-            
             if word.text.lower() not in punctuation:
-              
-              if word.text not in word_frequencies.keys():
-                
-                word_frequencies[word.text] =1
-                
-              else:
-                word_frequencies[word.text] +=1 #if any word is present more than 1 time
-
+                if word.text not in word_frequencies.keys():
+                    word_frequencies[word.text] =1                
+                else:
+                    word_frequencies[word.text] +=1 #if any word is present more than 1 time
           max_frequency = max(word_frequencies.values())
-
           for word in word_frequencies.keys():
-            
-            word_frequencies[word] = word_frequencies[word]/max_frequency
-
-            sentence_tokens = [sent for sent in doc.sents]
+                word_frequencies[word] = word_frequencies[word]/max_frequency
+                sentence_tokens = [sent for sent in doc.sents]
 
           sentence_scores = {} #create dictionary
           for sent in sentence_tokens:
-            
-            for word in sent:
-              if word.text.lower() in word_frequencies.keys():
-                
-                if sent not in sentence_scores.keys():
-                  
-                  sentence_scores[sent] = word_frequencies[word.text.lower()]
-                else:
-                  
-
-                  sentence_scores[sent] += word_frequencies[word.text.lower()]
+                for word in sent:
+                    if word.text.lower() in word_frequencies.keys():
+                        if sent not in sentence_scores.keys():
+                            sentence_scores[sent] = word_frequencies[word.text.lower()]
+                        else:
+                            sentence_scores[sent] += word_frequencies[word.text.lower()]
 
           #from heapq import nlargest
           select_length = int(len(sentence_tokens)*.3) #selecting only 10% of the sentences
