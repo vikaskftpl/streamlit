@@ -33,9 +33,6 @@ stopwords = stopwordlist.extend (['(',')','-',':',',',"'s",'!',':',"'","''",'--'
 nlp = spacy.load('en_core_web_sm')
 
 from heapq import nlargest
-        
-        
-
 
 st.title('Text Summary')#for streamlit
 text1 = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
