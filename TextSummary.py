@@ -16,7 +16,7 @@ from nltk.tokenize import word_tokenize
 import nltk
 #nltk.download('punkt')
 
-# from nltk.corpus import stopwords
+from nltk.corpus import stopwords
 stopwordlist = list(stopwords.words('english'))
 
 import spacy
