@@ -1,5 +1,5 @@
-python -m pip install --upgrade pip
-
+#python -m pip install --upgrade pip
+python -m pip==21.3.1
 python -m pip install sentence-splitter
 python -m pip install transformers
 python -m pip install SentencePiece
