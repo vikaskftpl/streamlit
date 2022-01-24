@@ -1,11 +1,18 @@
 #python -m pip install --upgrade pip
-pip install --upgrade pip==21.3.1
-pip install sentence-splitter
-pip install transformers
-pip install SentencePiece
-import torch
+#pip install --upgrade pip==21.3.1
+#pip install sentence-splitter
+#pip install transformers
+#pip install SentencePiece
+#import torch
 
 #!pip install sentence-splitter
 #!pip install transformers
 #!pip install SentencePiece
 #python -m pip install --upgrade pip
+
+
+py -m pip==21.3.1
+py -m pip sentence-splitter
+py -m pip transformers
+py -m pip SentencePiece
+
