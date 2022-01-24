@@ -11,7 +11,7 @@
 #python -m pip install --upgrade pip
 
 
-pip install --upgrade pip
+pythom -m pip install --upgrade pip
 py -m pip sentence-splitter
 py -m pip transformers
 py -m pip SentencePiece
