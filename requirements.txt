@@ -1,8 +1,9 @@
-py -m pip install sentence-splitter
-py -m pip install transformers
-py -m pip install SentencePiece
+python -m pip install sentence-splitter
+python -m pip install transformers
+python -m pip install SentencePiece
 import torch
 
 #!pip install sentence-splitter
 #!pip install transformers
 #!pip install SentencePiece
+#python -m pip install --upgrade pip
