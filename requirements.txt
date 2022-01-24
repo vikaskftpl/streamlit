@@ -1,7 +1,7 @@
 transformers
 SentencePiece
 sentence-splitter
-pytorch
+PyTorch
 
 #!pip install sentence-splitter
 #!pip install transformers
