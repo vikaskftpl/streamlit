@@ -10,7 +10,6 @@ Original file is located at
 import streamlit as st
 st.title("Start working with streamlit")
 
-import pandas as pd
 
 #1. Select slider
 import streamlit as st
@@ -156,8 +155,8 @@ if st.button('Click on button'):
         st.write('', str(tgt_text))#for streamlit
         
         contentDF = tgt_text
-        dataframeFinal = pd.DataFrame(contentDF)
-        csv = dataframeFinal.to_csv(index=True)
+       
+        csv = contentDF.to_csv(index=True)
         st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
         
     if st.button('Clear output'):
