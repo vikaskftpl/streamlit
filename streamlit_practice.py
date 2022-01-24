@@ -144,3 +144,20 @@ else:
 #       if nested_check:
 #           st.write(":heart:"*20)
 
+#################################
+#8
+st.title('8: Add a text box')
+tgt_text = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
+if st.button('Click on button'):
+    if tgt_text == '':    
+        st.write('Please enter text to get AI Reviews')
+    else:
+        st.write('', str(tgt_text))#for streamlit
+        
+        contentDF = tgt_text
+        dataframeFinal = pd.DataFrame(contentDF)
+        csv = dataframeFinal.to_csv(index=True)
+        st.download_button(label="Download CSV", data=csv,mime="text/csv",file_name="AIReviews.csv")
+        
+    if st.button('Clear output'):
+        st.text_area.empty()
