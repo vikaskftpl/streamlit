@@ -3,9 +3,9 @@
 
 # In[ ]:
 
-#! pip install sentence-splitter
-#! pip install transformers
-#! pip install SentencePiece
+pip install sentence-splitter
+pip install transformers
+pip install SentencePiece
 
 #import torch
 from transformers import PegasusForConditionalGeneration, PegasusTokenizer
