@@ -51,4 +51,4 @@ if st.button('Click to get AI Reviews'):
 else: pass
    
 num_return_sequences = 10
-num_beams = 10
+num_beams = 1000
