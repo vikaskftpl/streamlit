@@ -3,6 +3,9 @@
 #AIReviews.py
 # In[ ]:
 
+#streamlit cache clear
+
+
 #!pip install sentence-splitter
 #!pip install transformers
 #!pip install SentencePiece
