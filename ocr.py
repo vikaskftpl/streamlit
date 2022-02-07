@@ -13,7 +13,7 @@ Original file is located at
 import streamlit as st
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
-st.title('OCR_Image_to_Text')
+
 
 
 # from google.colab import drive
@@ -74,6 +74,8 @@ def draw_boxes(image,bounds,color= 'yellow',width =2):
     p0,p1,p2,p3=bound[0]
     draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
   return image
+
+st.title('OCR_Image_to_Text')
 
 # draw_boxes(im, bounds)
 
