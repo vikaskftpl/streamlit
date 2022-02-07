@@ -21,14 +21,14 @@ import streamlit as st
 # # path = '/content/drive/My Drive/Colab Notebooks/Projects/OCR_Project/english.png'
 # path = '/content/drive/My Drive/Colab Notebooks/Parag_Letter.jfif'
 # open(path,mode ='r')
-path = st.file_uploader("Choose a file")
-if path is not None:
+uploaded_file  = st.file_uploader("Choose a file")
+if uploaded_file is not None:
     # To read file as bytes:
-    bytes_data = path.getvalue()
+    bytes_data = uploaded_file.getvalue()
     st.write(bytes_data)
 
     # To convert to a string based IO:
-    stringio = StringIO(path.getvalue().decode("utf-8"))
+    stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
     st.write(stringio)
     
     
@@ -48,7 +48,7 @@ if path is not None:
 
 import PIL
 from PIL import ImageDraw
-im = PIL.Image.open(path)
+im = PIL.Image.open(uploaded_file)
 im
 
 # !pip uninstall opencv-python-headless==4.5.5.62
@@ -63,7 +63,7 @@ from googletrans import Translator
 import easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
-bounds = reader.readtext(path,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
+bounds = reader.readtext(uploaded_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
 bounds
 
 
@@ -79,7 +79,7 @@ st.title('OCR_Image_to_Text')
 
 # draw_boxes(im, bounds)
 
-text_list = reader.readtext(path,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
+text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 # print(text_list)
 
 text_comb =' '.join(text_list) #changed into a single line
