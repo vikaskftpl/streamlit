@@ -13,7 +13,6 @@ Original file is located at
 import streamlit as st
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
-
 st.title('OCR_Image_to_Text')
 
 
