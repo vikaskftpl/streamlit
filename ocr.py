@@ -2,6 +2,7 @@
 
 #streamlit cache clear
 # !pip uninstall googletrans
+pip install googletrans
 # !pip install googletrans==3.1.0a0
 
 import streamlit as st
@@ -9,11 +10,13 @@ import streamlit as st
 
 st.title('OCR_Image_to_Text')
 
-import PIL
+#import PIL
+pip install PIL
 from PIL import ImageDraw
 from googletrans import Translator
 
 #import easyocr
+pip install easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
     
