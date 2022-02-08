@@ -33,59 +33,62 @@ if uploaded_file is not None:
     
     
 
-#      # To read file as string:
-#      string_data = stringio.read()
-#      st.write(string_data)
+    #      # To read file as string:
+    #      string_data = stringio.read()
+    #      st.write(string_data)
 
-#      # Can be used wherever a "file-like" object is accepted:
-#      dataframe = pd.read_csv(uploaded_file)
-#      st.write(dataframe)
-
-
+    #      # Can be used wherever a "file-like" object is accepted:
+    #      dataframe = pd.read_csv(uploaded_file)
+    #      st.write(dataframe)
 
 
 
-import PIL
-from PIL import ImageDraw
-im = PIL.Image.open(uploaded_file)
-im
-
-# !pip uninstall opencv-python-headless==4.5.5.62
-
-# !pip install opencv-python-headless==4.5.2.52
-
-# !pip install easyocr
-#change run type to GPU
-# !pip install googletrans
-from googletrans import Translator
-
-import easyocr
-reader = easyocr.Reader(['en']) #IMP 'hi'
-translator = Translator()
-bounds = reader.readtext(uploaded_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
-bounds
 
 
+    import PIL
+    from PIL import ImageDraw
+    im = PIL.Image.open(uploaded_file)
+    im
 
-def draw_boxes(image,bounds,color= 'yellow',width =2):
-  draw = ImageDraw.Draw(image)
-  for bound in bounds:
-    p0,p1,p2,p3=bound[0]
-    draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
-  return image
+    # !pip uninstall opencv-python-headless==4.5.5.62
 
-st.title('OCR_Image_to_Text')
+    # !pip install opencv-python-headless==4.5.2.52
 
-# draw_boxes(im, bounds)
+    # !pip install easyocr
+    #change run type to GPU
+    # !pip install googletrans
+    from googletrans import Translator
 
-text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
-# print(text_list)
+    import easyocr
+    reader = easyocr.Reader(['en']) #IMP 'hi'
+    translator = Translator()
+    bounds = reader.readtext(uploaded_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
+    bounds
 
-text_comb =' '.join(text_list) #changed into a single line
-# print(text_comb)
-text_comb
 
-# %cd '/content/drive/My Drive/Colab Notebooks/'
-# fhand = open('OCR_Output.txt','w')
-# fhand.write(text_comb) # Erass all, already writtena and write what has been passed
-# fhand.close()
+
+    def draw_boxes(image,bounds,color= 'yellow',width =2):
+      draw = ImageDraw.Draw(image)
+      for bound in bounds:
+        p0,p1,p2,p3=bound[0]
+        draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
+      return image
+
+    st.title('OCR_Image_to_Text')
+
+    # draw_boxes(im, bounds)
+
+    text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
+    # print(text_list)
+
+    text_comb =' '.join(text_list) #changed into a single line
+    # print(text_comb)
+    text_comb
+
+    # %cd '/content/drive/My Drive/Colab Notebooks/'
+    # fhand = open('OCR_Output.txt','w')
+    # fhand.write(text_comb) # Erass all, already writtena and write what has been passed
+    # fhand.close()
+
+
+else: pass
