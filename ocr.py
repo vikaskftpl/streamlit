@@ -43,10 +43,9 @@ if uploaded_file is not None:
         
         draw = ImageDraw.Draw(image)
         for bound in bounds:
-            
             p0,p1,p2,p3=bound[0]
             draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
-         return image
+        return image
 
     # draw_boxes(im, bounds)
     text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
