@@ -17,12 +17,13 @@ if uploaded_file is not None:
 
     # To convert to a string based IO:
     #stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
-    stringio = StringIO(uploaded_file.getvalue(),mode = 'r')
-    st.write(stringio)
+    #stringio = StringIO(uploaded_file.getvalue(),mode = 'r')
+    
+    #st.write(stringio)
 
     import PIL
     from PIL import ImageDraw
-    im = PIL.Image.open(uploaded_file)
+    im = PIL.Image.open(bytes_data)
     im
 
     # !pip uninstall opencv-python-headless==4.5.5.62
@@ -37,7 +38,7 @@ if uploaded_file is not None:
     import easyocr
     reader = easyocr.Reader(['en']) #IMP 'hi'
     translator = Translator()
-    bounds = reader.readtext(uploaded_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
+    bounds = reader.readtext(bytes_data,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
     bounds
 
     def draw_boxes(image,bounds,color= 'yellow',width =2):
@@ -49,7 +50,7 @@ if uploaded_file is not None:
         return image
 
     # draw_boxes(im, bounds)
-    text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
+    text_list = reader.readtext(bytes_data,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 
     text_comb =' '.join(text_list) #changed into a single line
     text_comb
