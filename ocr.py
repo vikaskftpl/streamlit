@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # streamlit cache clear
-#pip install streamlit
+# pip install streamlit --upgrade
 # pip install googletrans
 # pip install googletrans==3.1.0a0
 # pip install PIL
@@ -14,7 +14,7 @@
 # !pip uninstall googletrans
 # !pip install googletrans==3.1.0a0
 import streamlit as st
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+#@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
 st.title('OCR_Image_to_Text')
 
