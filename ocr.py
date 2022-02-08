@@ -5,12 +5,13 @@
 # !pip install googletrans==3.1.0a0
 
 import streamlit as st
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+#@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
 st.title('OCR_Image_to_Text')
     
 uploaded_file  = st.file_uploader("Choose a file")
-if uploaded_file is not None:    
+if uploaded_file is not None:
+    
     bytes_data = uploaded_file.getvalue()
     st.write(bytes_data)
 
@@ -39,13 +40,13 @@ if uploaded_file is not None:
     bounds
 
     def draw_boxes(image,bounds,color= 'yellow',width =2):
+        
         draw = ImageDraw.Draw(image)
         for bound in bounds:
+            
             p0,p1,p2,p3=bound[0]
             draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
          return image
-
-
 
     # draw_boxes(im, bounds)
     text_list = reader.readtext(uploaded_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
