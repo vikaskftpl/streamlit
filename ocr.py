@@ -8,12 +8,21 @@ import streamlit as st
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
 st.title('OCR_Image_to_Text')
+
+import PIL
+from PIL import ImageDraw
+from googletrans import Translator
+
+import easyocr
+reader = easyocr.Reader(['en']) #IMP 'hi'
+translator = Translator()
     
 uploaded_file  = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     
     bytes_data = uploaded_file.getvalue()
-    st.write(bytes_data)
+    open(bytes_data,mode ='r')
+    #st.write(bytes_data)
 
     # To convert to a string based IO:
     #stringio = StringIO(uploaded_file.getvalue().decode("utf-8"))
@@ -21,8 +30,8 @@ if uploaded_file is not None:
     
     #st.write(stringio)
 
-    import PIL
-    from PIL import ImageDraw
+    #import PIL
+    #from PIL import ImageDraw
     im = PIL.Image.open(bytes_data)
     im
 
@@ -33,11 +42,11 @@ if uploaded_file is not None:
     # !pip install easyocr
     #change run type to GPU
     # !pip install googletrans
-    from googletrans import Translator
+    #from googletrans import Translator
 
-    import easyocr
-    reader = easyocr.Reader(['en']) #IMP 'hi'
-    translator = Translator()
+#     import easyocr
+#     reader = easyocr.Reader(['en']) #IMP 'hi'
+#     translator = Translator()
     bounds = reader.readtext(bytes_data,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
     bounds
 
