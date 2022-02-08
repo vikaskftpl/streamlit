@@ -22,7 +22,7 @@ translator = Translator()
 import streamlit as st
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
-st.title('OCR_Image_to_Text')
+#st.title('OCR_Image_to_Text')
 uploaded_file  = st.file_uploader("Choose a file")
 if uploaded_file is not None:
     bytes_data = uploaded_file.getvalue()
