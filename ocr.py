@@ -13,7 +13,7 @@ import PIL
 from PIL import ImageDraw
 from googletrans import Translator
 
-import easyocr
+#import easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
     
