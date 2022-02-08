@@ -8,6 +8,10 @@
 # pip install easyocr
 # pip uninstall opencv-python-headless==4.5.5.62
 # pip install opencv-python-headless==4.5.2.52
+#pip install easyocr
+import easyocr
+import PIL
+from googletrans import Translator
 
 from PIL import ImageDraw
 from googletrans import Translator
