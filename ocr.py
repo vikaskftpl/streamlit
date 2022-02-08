@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 
-#streamlit cache clear
-# !pip uninstall googletrans
-#pip install googletrans
-# !pip install googletrans==3.1.0a0
+# streamlit cache clear
+#pip install streamlit
+# pip install googletrans
+# pip install googletrans==3.1.0a0
+# pip install PIL
+# pip install easyocr
+# pip uninstall opencv-python-headless==4.5.5.62
+# pip install opencv-python-headless==4.5.2.52
 
+
+
+# !pip uninstall googletrans
+# !pip install googletrans==3.1.0a0
 import streamlit as st
-#@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
 st.title('OCR_Image_to_Text')
 
