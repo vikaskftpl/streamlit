@@ -5,4 +5,4 @@ py -m pip sentence-splitter
 py -m pip transformers
 py -m pip SentencePiece
 streamlit==0.75.0
-pip install pip --upgrade
+#pip install pip --upgrade
