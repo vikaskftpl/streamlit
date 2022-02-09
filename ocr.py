@@ -1,3 +1,14 @@
+#for ocr.py
+#streamlit cache clear
+#pip install streamlit --upgrade
+#pip install googletrans
+#pip install googletrans==3.1.0a0
+#pip install PIL
+#pip install easyocr
+#pip uninstall opencv-python-headless==4.5.5.62
+#pip install opencv-python-headless==4.5.2.52
+#pip install easyocr
+
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
@@ -10,7 +21,7 @@ reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 
 image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
-image_file =Image.open(image_file_tmp,mode = 'r')
+
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_image(image_file):
@@ -19,11 +30,9 @@ def load_image(image_file):
 
 st.title('OCR')
 if image_file is not None:
-	#im = PIL.Image.open(image_file)
-	#bounds = reader.readtext(image_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-')
+	image_file =Image.open(image_file_tmp,mode = 'r')
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
-	text_comb =' '.join(text_list) #changed into a single line Above line commented
-	#text_comb #added
+	text_comb =' '.join(text_list)
 	st.write('', str(text_comb))#for streamlit
 else:
 	pass
