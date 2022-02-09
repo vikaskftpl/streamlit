@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 
-# streamlit cache clear
-# pip install streamlit --upgrade
-# pip install googletrans
-# pip install googletrans==3.1.0a0
-# pip install PIL
-# pip install easyocr
-# pip uninstall opencv-python-headless==4.5.5.62
-# pip install opencv-python-headless==4.5.2.52
+#streamlit cache clear
+#pip install streamlit --upgrade
+#pip install googletrans
+#pip install googletrans==3.1.0a0
+#pip install PIL
+#pip install easyocr
+#pip uninstall opencv-python-headless==4.5.5.62
+#pip install opencv-python-headless==4.5.2.52
 #pip install easyocr
 import easyocr
 import PIL
@@ -40,7 +40,7 @@ if uploaded_file is not None:
             draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
         return image
 
-    # draw_boxes(im, bounds)
+    #draw_boxes(im, bounds)
     text_list = reader.readtext(bytes_data,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
     text_comb =' '.join(text_list) #changed into a single line
     text_comb
