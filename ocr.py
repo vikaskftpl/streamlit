@@ -21,28 +21,34 @@ translator = Translator()
 
 import streamlit as st
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
+st.title('OCR_Image_to_Text')
 
-#st.title('OCR_Image_to_Text')
-uploaded_file  = st.file_uploader("Choose a file")
-if uploaded_file is not None:
-    bytes_data = uploaded_file.getvalue()
-    open(bytes_data,mode ='r')
+import os
+image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+if image_file is not None:
+    # To See details
+	file_details = {"filename":image_file.name, "filetype":image_file.type, "filesize":image_file.size}
+    st.write(file_details)
+    # To View Uploaded Image
+	st.image(load_image(image_file),width=250)
+def load_image(image_file):
+    
+    img = Image.open(image_file,mode = 'r')
+	return img
 
-    im = PIL.Image.open(bytes_data)
-    im
-    bounds = reader.readtext(bytes_data,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
-    bounds
+bounds = reader.readtext(image_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-' )
 
-    def draw_boxes(image,bounds,color= 'yellow',width =2):
-        draw = ImageDraw.Draw(image)
-        for bound in bounds:
-            p0,p1,p2,p3=bound[0]
-            draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
-        return image
+def draw_boxes(image_file,bounds,color= 'yellow',width =2):
+    draw = ImageDraw.Draw(image_file)
+    for bound in bounds:
+        p0,p1,p2,p3=bound[0]
+        draw.line([*p0,*p1,*p2,*p3,*p0], fill = color, width = width)
+    return image_file
 
-    #draw_boxes(im, bounds)
-    text_list = reader.readtext(bytes_data,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
-    text_comb =' '.join(text_list) #changed into a single line
-    text_comb
+
+#draw_boxes(im, bounds)
+text_list = reader.readtext(bytes_data,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
+text_comb =' '.join(text_list) #changed into a single line
+text_comb
 
 else: pass
