@@ -20,9 +20,9 @@ import easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 
-#image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 try:
-	with open(st.file_uploader("Upload Images", type=["png","jpg","jpeg"])) as input:
+	with open(os.path.join(image_file_tmp),"wb") as input:
 		image_file =Image.open(input,mode = 'r')
 except FileNotFoundError:
 	st.error('File not found.')
