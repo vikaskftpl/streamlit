@@ -20,7 +20,7 @@ reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 
 import streamlit as st
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)
+#@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 st.title('OCR_Image_to_Text')
 
 import os
