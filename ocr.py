@@ -13,7 +13,7 @@ image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 st.title('OCR')
 
 def load_image(image_file):
-	img = Image.open(image_file)
+	img = Image.open(image_file,mode = 'r')
 	return img
 
 
