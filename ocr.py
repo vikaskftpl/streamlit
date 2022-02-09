@@ -23,7 +23,7 @@ if image_file is not None:
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 	#print(text_list)
 	text_comb =' '.join(text_list) #changed into a single line Above line commented
+	
 	#print(text_comb)
-    	text_comb
-else:
-	pass
+    	text_comb #added
+
