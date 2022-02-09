@@ -10,6 +10,7 @@ reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 
 image_file = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+open(image_file,mode ='r')
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
 def load_image(image_file):
