@@ -20,19 +20,24 @@ import easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 
-image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
-try:
-	with open(os.path.join(image_file_tmp),"wb") as input:
-		image_file =Image.open(input,mode = 'r')
-except FileNotFoundError:
-	st.error('File not found.')
-
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
+st.title('OCR')
+
 def load_image(image_file_tmp):
 	img = Image.open(image_file_tmp,mode = 'r')
 	return img
 
-st.title('OCR')
+
+image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+try:
+	
+	with open(os.path.join(image_file_tmp),"wb") as input:
+		
+		image_file =Image.open(input,mode = 'r')
+except FileNotFoundError:
+	st.error('File not found.')
+
+
 if image_file is not None:
 	#image_file =Image.open(image_file_tmp,mode = 'r')
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
