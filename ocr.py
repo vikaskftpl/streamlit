@@ -18,7 +18,7 @@ def load_image(image_file):
 
 
 if image_file is not None:
-	im = PIL.Image.open(image_file, mode = 'r')
+	#im = PIL.Image.open(image_file)
 	bounds = reader.readtext(image_file,add_margin = 0.1,width_ths=0.5, link_threshold=0.4,decoder='beamsearch', blocklist='=-')
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 	#print(text_list)
