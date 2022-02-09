@@ -24,12 +24,12 @@ image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
-def load_image(image_file):
-	img = Image.open(image_file,mode = 'r')
+def load_image(image_file_tmp):
+	img = Image.open(image_file_tmp,mode = 'r')
 	return img
 
 st.title('OCR')
-if image_file is not None:
+if image_file_tmp is not None:
 	image_file =Image.open(image_file_tmp,mode = 'r')
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 	text_comb =' '.join(text_list)
