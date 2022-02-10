@@ -28,7 +28,7 @@ translator = Translator()
 image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
 
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)
-st.title('OCR NEW')
+#st.title('OCR NEW')
 
 try:
 	with open(os.path.join(image_file_tmp),"wb") as input:
