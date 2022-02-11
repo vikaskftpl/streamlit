@@ -25,11 +25,11 @@ import pandas as pd
 	#img = Image.open(image_file_tmp,mode = 'r')
 	#return img
 
-
-image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg","bmp","gif"])
+st.title('To extract Text, upload an Image file')
+image_file_tmp = st.file_uploader(type=["png","jpg","jpeg","bmp","gif"])
 
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
-#st.title('OCR NEW')
+
 
 # try:
 # 	with open(os.path.join(image_file_tmp),"wb") as input:
