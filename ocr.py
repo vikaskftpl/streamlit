@@ -47,8 +47,7 @@ if image_file_tmp is not None:
 	#contentDF = text_comb
         #dataframeFinal = pd.DataFrame(contentDF)#added
         #csv = dataframeFinal.to_csv(index=True)
-
-        st.download_button('Download Text', text_comb)
+	st.download_button('Download NEW Text', text_comb)
         
 if st.button('Clear output'):
 	st.text_area.empty()
