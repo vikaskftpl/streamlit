@@ -1,9 +1,9 @@
 #pythom -m pip install --upgrade pip
 #python.exe -m pip install --upgrade pip --user
 
-py -m pip sentence-splitter
-py -m pip transformers
-py -m pip SentencePiece
+py -m pip install sentence-splitter
+py -m pip install transformers
+py -m pip install SentencePiece
 #py -m pip install streamlit==0.75.0
 #pip install pip --upgrade
 
