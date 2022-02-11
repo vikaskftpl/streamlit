@@ -19,6 +19,7 @@ from googletrans import Translator
 import easyocr
 reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
+import pandas as pd
 
 #def load_image(image_file_tmp):
 	#img = Image.open(image_file_tmp,mode = 'r')
@@ -42,5 +43,14 @@ if image_file_tmp is not None:
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 	text_comb =' '.join(text_list)
 	st.write('', str(text_comb))#for streamlit
+	
+	contentDF = text_comb
+        dataframeFinal = pd.DataFrame(contentDF)
+        csv = dataframeFinal.to_csv(index=True)
+
+        st.download_button(label="Download Text", data=csv,mime="text/csv",file_name="Extracted Text.txt")
+        
+    if st.button('Clear output'):
+        st.text_area.empty()
 else:
 	pass
