@@ -48,7 +48,7 @@ if image_file_tmp is not None:
         dataframeFinal = pd.DataFrame(contentDF)
         csv = dataframeFinal.to_csv(index=True)
 
-        st.download_button(label="Download Text", data=csv,mime="text/csv",file_name="Extracted Text.txt")
+        st.download_button(label="Download Text", data=text,mime="text/csv",file_name="Extracted Text.txt")
         
 if st.button('Clear output'):
         st.text_area.empty()
