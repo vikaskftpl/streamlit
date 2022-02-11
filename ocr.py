@@ -44,13 +44,13 @@ if image_file_tmp is not None:
 	text_comb =' '.join(text_list)
 	st.write('', str(text_comb))#for streamlit
 	
-	contentDF = text_comb
-        dataframeFinal = pd.DataFrame(contentDF)#added
-        csv = dataframeFinal.to_csv(index=True)
+	#contentDF = text_comb
+        #dataframeFinal = pd.DataFrame(contentDF)#added
+        #csv = dataframeFinal.to_csv(index=True)
 
-        st.download_button(label="Download Text", data=text,mime="text/csv",file_name="Extracted Text.txt")
+        st.download_button('Download Text', text_comb)
         
-	if st.button('Clear output'):
-		st.text_area.empty()
+if st.button('Clear output'):
+	st.text_area.empty()
 else:
 	pass
