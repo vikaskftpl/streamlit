@@ -1,11 +1,4 @@
-#py -m pip install sentence-splitter
-#py -m pip install transformers
-#py -m pip install SentencePiece
-
-#for ocr.py
-#streamlit cache clear
-py -m pip install streamlit
-py -m pip install googletrans
-py -m pip install googletrans == 3.1.0a0
-py -m pip install easyocr
-py -m pip install opencv-python-headless == 4.5.2.52
+streamlit
+googletrans == 3.1.0a0
+easyocr
+opencv-python-headless == 4.5.2.52
