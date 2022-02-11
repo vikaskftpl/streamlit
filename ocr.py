@@ -50,7 +50,7 @@ if image_file_tmp is not None:
 
         st.download_button(label="Download Text", data=csv,mime="text/csv",file_name="Extracted Text.txt")
         
-    if st.button('Clear output'):
+if st.button('Clear output'):
         st.text_area.empty()
 else:
 	pass
