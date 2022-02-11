@@ -9,7 +9,7 @@ py -m pip SentencePiece
 
 #for ocr.py
 #streamlit cache clear
-py -m pip install streamlit --upgrade
+py -m pip install streamlit
 #pip install streamlit --upgrade
 #pip install googletrans
 py -m pip install googletrans
@@ -21,5 +21,5 @@ py -m pip install easyocr
 #py -m pip uninstall opencv-python-headless==4.5.5.62
 #pip uninstall opencv-python-headless==4.5.5.62
 #pip install opencv-python-headless==4.5.2.52
-py -m pip install opencv-python-headless==4.5.2.52
+py -m pip install opencv-python-headless == 4.5.2.52
 #pip install easyocr
