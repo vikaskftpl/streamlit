@@ -26,7 +26,7 @@ import pandas as pd
 	#return img
 
 st.title('To extract Text, upload an Image file')
-image_file_tmp = st.file_uploader(type=["png","jpg","jpeg","bmp","gif"])
+image_file_tmp = st.file_uploader(' ',type=["png","jpg","jpeg","bmp","gif"])
 
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
