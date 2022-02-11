@@ -9,8 +9,8 @@
 #pip install opencv-python-headless==4.5.2.52
 #pip install easyocr
 
-#import os
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
+import os
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 import streamlit as st
 import PIL
