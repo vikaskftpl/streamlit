@@ -26,7 +26,7 @@ import pandas as pd
 	#return img
 
 
-image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg"])
+image_file_tmp = st.file_uploader("Upload Images", type=["png","jpg","jpeg","bmp","gif"])
 
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 #st.title('OCR NEW')
@@ -47,9 +47,9 @@ if image_file_tmp is not None:
 	#contentDF = text_comb
         #dataframeFinal = pd.DataFrame(contentDF)#added
         #csv = dataframeFinal.to_csv(index=True)
-	st.download_button('Download NEW Text', text_comb)
+	st.download_button('Download', text_comb)
         
-if st.button('Clear output'):
-	st.text_area.empty()
+#if st.button('Clear output'):
+	#st.text_area.empty()
 else:
 	pass
