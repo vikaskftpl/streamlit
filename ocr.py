@@ -26,7 +26,11 @@ import pandas as pd
 	#return img
 
 st.title('To extract Text, upload an Image file')
-image_file_tmp = st.file_uploader(' ',type=["png","jpg","jpeg","bmp","gif"])
+try:
+	image_file_tmp = st.file_uploader(' ')
+except FileNotFoundError:
+	st.error('Upload an image file of less than 200 MB)
+	
 
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
 
