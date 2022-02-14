@@ -38,7 +38,7 @@ if image_file_tmp is not None:
 	text_comb =' '.join(text_list)
 	st.write('', str(text_comb))#for streamlit
 	st.download_button('Download Text', text_comb)
-	st.download_button('Download Image',data = sr_img,file_name='Enlarged Image',mime="image/png")
+	st.download_button('Download Image',data = sr_img,file_name='Enlarged Image')#,mime="image/png"
 	
 else:
 	pass
