@@ -29,7 +29,7 @@ st.title('To extract Text, upload an Image file')
 try:
 	image_file_tmp = st.file_uploader(' ')
 except FileNotFoundError:
-	st.error('Upload an image file of less than 200 MB)
+	st.error('Upload an image file (only) of less than 200 MB')
 	
 
 #@st.cache(allow_output_mutation=True, suppress_st_warning=True)
