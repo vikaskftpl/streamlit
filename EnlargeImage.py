@@ -1,11 +1,12 @@
 #streamlit cache clear
 #pip install streamlit --upgrade
-#!pip install ISR
 #!pip install 'h5py==2.10.0' --force-reinstall
 import numpy as np
 from ISR.models import RDN
 import numpy as np
 from PIL import Image
+#pip install tensorflow
+#pip install ISR
 
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
