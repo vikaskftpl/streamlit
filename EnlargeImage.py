@@ -7,6 +7,12 @@ import numpy as np
 from PIL import Image
 #pip install tensorflow
 #pip install ISR
+from googletrans import Translator
+import easyocr
+reader = easyocr.Reader(['en']) #IMP 'hi'
+translator = Translator()
+import pandas as pd
+
 
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
@@ -31,6 +37,8 @@ if image_file_tmp is not None:
 	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
 	text_comb =' '.join(text_list)
 	st.write('', str(text_comb))#for streamlit
-	st.download_button('Download', text_comb)
+	st.download_button('Download Text', text_comb)
+	st.download_button('Download Image',data = sr_img,file_name='Enlarged Image',mime="image/png")
+	
 else:
 	pass
