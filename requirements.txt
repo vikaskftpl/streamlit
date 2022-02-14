@@ -12,4 +12,3 @@ googletrans==3.1.0a0
 ISR
 tensorflow
 h5py==2.10.0
-streamlit --upgrade
