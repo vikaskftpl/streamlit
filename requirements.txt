@@ -1,4 +1,14 @@
+#AIReviews
 streamlit
 googletrans == 3.1.0a0
 easyocr
 opencv-python-headless == 4.5.2.52
+
+#OCR
+googletrans==3.1.0a0
+
+
+#EnlargeImage
+ISR
+tensorflow
+h5py==2.10.0
