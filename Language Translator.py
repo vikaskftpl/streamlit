@@ -12,7 +12,7 @@ def download_model():
     tokenizer = MBart50Tokenizer.from_pretrained(model_name)
     return model, tokenizer
 
-st.title('ANY language to English Translator')#for streamlit
+st.title('1. ANY language to English Translator')#for streamlit
 text = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
@@ -27,7 +27,7 @@ if st.button('Translate to English'):#for streamlit
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
         ###
-st.title('¿Quieres traducirlo al español?')#for streamlit
+st.title('2. ¿Quieres traducirlo al español?')#for streamlit
 text = st.text_area("Enter English Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
@@ -42,7 +42,7 @@ if st.button('Translate to Spanish'):#for streamlit
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
         #####
-st.title('Vous voulez le traduire en espagnol ?')#for streamlit
+st.title('3. Vous voulez le traduire en espagnol ?')#for streamlit
 text = st.text_area("Enter French Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
