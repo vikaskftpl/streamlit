@@ -11,5 +11,6 @@ googletrans==3.1.0a0
 
 #EnlargeImage
 ISR
-tensorflow
+#tensorflow
+tensorflow-cpu
 h5py==2.10.0
