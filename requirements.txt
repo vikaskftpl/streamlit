@@ -1,13 +1,14 @@
 #AIReviews
-streamlit
-pip
-googletrans == 3.1.0a0
-easyocr
-opencv-python-headless == 4.5.2.52
+sentence-splitter
+transformers
+SentencePiece
 
 #OCR
 googletrans==3.1.0a0
-
+streamlit
+pip
+easyocr
+opencv-python-headless == 4.5.2.52
 
 #EnlargeImage
 ISR
