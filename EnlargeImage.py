@@ -13,9 +13,12 @@ reader = easyocr.Reader(['en']) #IMP 'hi'
 translator = Translator()
 import pandas as pd
 
+git clone https://github.com/idealo/image-super-resolution
+cd image-super-resolution
+python setup.py install
 
 import os
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+#os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 import streamlit as st
 import PIL
