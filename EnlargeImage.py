@@ -34,10 +34,10 @@ if image_file_tmp is not None:
 	sr_img = rdn.predict(lr_img)
 	Image.fromarray(sr_img)
 	st.image(sr_img, caption='Enlarged Image',width=None)
-	text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
-	text_comb =' '.join(text_list)
-	st.write('', str(text_comb))#for streamlit
-	st.download_button('Download Text', text_comb)
+	#text_list = reader.readtext(image_file,add_margin = 0.55,width_ths=0.7, link_threshold=0.8,decoder='beamsearch', blocklist='=-',detail = 0 )
+	#text_comb =' '.join(text_list)
+	#st.write('', str(text_comb))#for streamlit
+	#st.download_button('Download Text', text_comb)
 	#st.download_button('Download Image',data = sr_img,file_name='Enlarged Image')#,mime="image/png"
 	
 else:
