@@ -11,6 +11,7 @@ easyocr
 opencv-python-headless == 4.5.2.52
 
 #EnlargeImage
+h5py==2.10.0
 ISR
 #tensorflow
 tensorflow-cpu
