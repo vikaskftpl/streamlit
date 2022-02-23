@@ -15,7 +15,7 @@ import pandas as pd
 
 
 import os
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 import streamlit as st
 import PIL
