@@ -4,15 +4,15 @@ transformers
 SentencePiece
 
 #OCR
-googletrans==3.1.0a0
-streamlit
-pip
-easyocr
-opencv-python-headless == 4.5.2.52
+#googletrans==3.1.0a0
+#streamlit
+#pip
+#easyocr
+#opencv-python-headless == 4.5.2.52
 
 #EnlargeImage
 h5py==2.10.0
-ISR
+ISR==3.13
 #tensorflow
 tensorflow-cpu
 h5py==2.10.0
