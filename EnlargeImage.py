@@ -1,13 +1,13 @@
 #https://idealo.github.io/image-super-resolution/
 #streamlit cache clear
 #pip install streamlit --upgrade
-#!pip install 'h5py==2.10.0' --force-reinstall
+
 import numpy as np
-
-
 # git clone https://github.com/idealo/image-super-resolution
 # cd image-super-resolution
 # python setup.py install
+pip install ISR
+pip install 'h5py==2.10.0' --force-reinstall
 
 from ISR.models import RDN
 import numpy as np
@@ -23,7 +23,7 @@ import pandas as pd
 
 
 import os
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 import streamlit as st
 import PIL
