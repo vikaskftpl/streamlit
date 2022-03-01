@@ -11,8 +11,8 @@ SentencePiece
 #opencv-python-headless == 4.5.2.52
 
 #EnlargeImage
-h5py==2.10.0
-ISR==3.13
+#h5py==2.10.0
+#ISR==3.13
 #tensorflow
-tensorflow-cpu
-h5py==2.10.0
+#tensorflow-cpu
+#h5py==2.10.0
