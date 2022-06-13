@@ -1,27 +1,26 @@
-#!/usr/bin/env python
-# coding: utf-8
-
+# -*- coding: utf-8 -*-
 # In[ ]:
+import streamlit as st
+st.title('Anomaly Detection')
 
 #!pip install fbprophet
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 
 #import os
 #os.environ['KMP_DUPLICATE_LIB_OK']='True'
-import streamlit as st
 
-#import matplotlib as mpl
-#import matplotlib.pyplot as plt
+
+import matplotlib as mpl
+import matplotlib.pyplot as plt
 import numpy as np
 import os
 from datetime import datetime
 import pandas as pd
 import plotly.express as px
-
+from fbprophet import Prophet
 mpl.rcParams['figure.figsize'] = (10, 8)
 mpl.rcParams['axes.grid'] = False
 
-st.title('Anomaly Detection')
 
 import pandas as pd
 url = 'https://github.com/vikaskftpl/streamlit/blob/main/Total_Order_Amount_9June22.csv?raw=true'
@@ -36,7 +35,10 @@ df=df.set_index('createdon').resample("D").mean() #Hourly (H), Daily (D), Monthl
 
 #st.download_report('Download Report', text_comb)
 
+
+
 if st.button('Generate Report'):#for streamlit
+    
 
     fig = px.line(df.reset_index(), x='createdon', y='OrderAmount', title='Order Trend')
 
@@ -52,10 +54,10 @@ if st.button('Generate Report'):#for streamlit
         )
     )
     #fig.show()
-    st.write(fig.show())
+    st.write('', fig.show())#for streamlit
 
 
-    from fbprophet import Prophet
+    #from fbprophet import Prophet
 
     Adibuja_df=df.reset_index()[['createdon','OrderAmount']].rename({'createdon':'ds','OrderAmount':'y'}, axis='columns') #Column name MUST be 'ds' and 'y' ONLY
 
@@ -63,7 +65,7 @@ if st.button('Generate Report'):#for streamlit
     test=Adibuja_df[(Adibuja_df['ds'] > '2021-12-31')]
 
     #print(test.shape)
-    st.write(test.shape)
+    st.write('', test.shape)
 
     m = Prophet(seasonality_mode='multiplicative', daily_seasonality=True, interval_width=0.95)
 
@@ -77,12 +79,12 @@ if st.button('Generate Report'):#for streamlit
     results=pd.concat([Adibuja_df.set_index('ds')['y'],forecast.set_index('ds')[['yhat', 'yhat_lower', 'yhat_upper']]],axis=1)
     fig1 = m.plot(forecast)
     #print(fig1)
-    st.write(fig1)
+    st.write('',fig1)
 
 
     comp=m.plot_components(forecast)
     #print(comp)
-    st.write(comp)
+    st.write('', comp)
 
     results['error'] = results['y'] - results['yhat']
 
@@ -107,6 +109,7 @@ if st.button('Generate Report'):#for streamlit
         )
     )
     #print(fig.show())
-    st.write(fig.show())
+    st.write('', fig.show())
 
-else: pass
+else:
+    pass
