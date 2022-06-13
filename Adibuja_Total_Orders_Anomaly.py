@@ -4,7 +4,7 @@ import streamlit as st
 st.title('Anomaly Detection')
 
 #!pip install fbprophet
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+#@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 
 #import os
 #os.environ['KMP_DUPLICATE_LIB_OK']='True'
@@ -22,12 +22,8 @@ mpl.rcParams['figure.figsize'] = (10, 8)
 mpl.rcParams['axes.grid'] = False
 
 
-import pandas as pd
 url = 'https://github.com/vikaskftpl/streamlit/blob/main/Total_Order_Amount_9June22.csv?raw=true'
 df = pd.read_csv(url,index_col=0)
-
-#print(df.head(5))
-
 
 df['createdon']=pd.to_datetime(df['createdon']) #converted 'createdon' to 'datetime' data type
 
@@ -38,8 +34,6 @@ df=df.set_index('createdon').resample("D").mean() #Hourly (H), Daily (D), Monthl
 
 
 if st.button('Generate Report'):#for streamlit
-    
-
     fig = px.line(df.reset_index(), x='createdon', y='OrderAmount', title='Order Trend')
 
     fig.update_xaxes(
