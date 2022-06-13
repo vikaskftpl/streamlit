@@ -21,3 +21,4 @@ SentencePiece
 #Anomaly Detection
 fbprophet
 plotly
+matplotlib
