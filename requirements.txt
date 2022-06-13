@@ -20,3 +20,4 @@ SentencePiece
 
 #Anomaly Detection
 fbprophet
+plotly
