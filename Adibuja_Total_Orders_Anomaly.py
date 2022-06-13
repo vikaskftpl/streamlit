@@ -1,8 +1,14 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[ ]:
+
 #!pip install fbprophet
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+
 import os
 os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import streamlit as st
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 
 
 import matplotlib as mpl
