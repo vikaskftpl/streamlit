@@ -6,10 +6,9 @@
 #!pip install fbprophet
 @st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 
-import os
-os.environ['KMP_DUPLICATE_LIB_OK']='True'
+#import os
+#os.environ['KMP_DUPLICATE_LIB_OK']='True'
 import streamlit as st
-
 
 #import matplotlib as mpl
 #import matplotlib.pyplot as plt
@@ -35,7 +34,7 @@ df['createdon']=pd.to_datetime(df['createdon']) #converted 'createdon' to 'datet
 
 df=df.set_index('createdon').resample("D").mean() #Hourly (H), Daily (D), Monthly (M)
 
-st.download_report('Download Report', text_comb)
+#st.download_report('Download Report', text_comb)
 
 if st.button('Generate Report'):#for streamlit
 
@@ -109,7 +108,5 @@ if st.button('Generate Report'):#for streamlit
     )
     #print(fig.show())
     st.write(fig.show())
-
-   
 
 else: pass
