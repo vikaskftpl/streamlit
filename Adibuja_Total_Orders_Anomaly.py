@@ -20,7 +20,7 @@ import pandas as pd
 url = 'https://github.com/vikaskftpl/streamlit/blob/main/Total_Order_Amount_9June22.csv?raw=true'
 df = pd.read_csv(url,index_col=0)
 
-print(df.head(5))
+#print(df.head(5))
 
 
 df['createdon']=pd.to_datetime(df['createdon']) #converted 'createdon' to 'datetime' data type
