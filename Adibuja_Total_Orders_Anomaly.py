@@ -1,14 +1,11 @@
 # -*- coding: utf-8 -*-
 # In[ ]:
+import os
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
+
 import streamlit as st
 st.title('Anomaly Detection')
-
-#!pip install fbprophet
-@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
-
-#import os
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
-
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -18,9 +15,13 @@ from datetime import datetime
 import pandas as pd
 import plotly.express as px
 from fbprophet import Prophet
+
+#!pip install fbprophet
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+
+
 mpl.rcParams['figure.figsize'] = (10, 8)
 mpl.rcParams['axes.grid'] = False
-
 
 url = 'https://github.com/vikaskftpl/streamlit/blob/main/Total_Order_Amount_9June22.csv?raw=true'
 df = pd.read_csv(url,index_col=0)
@@ -30,9 +31,6 @@ df['createdon']=pd.to_datetime(df['createdon']) #converted 'createdon' to 'datet
 df=df.set_index('createdon').resample("D").mean() #Hourly (H), Daily (D), Monthly (M)
 
 #st.download_report('Download Report', text_comb)
-
-
-
 if st.button('Generate Report'):#for streamlit
     fig = px.line(df.reset_index(), x='createdon', y='OrderAmount', title='Order Trend')
 
@@ -105,5 +103,4 @@ if st.button('Generate Report'):#for streamlit
     #print(fig.show())
     st.write('', fig.show())
 
-else:
-    pass
+else:    pass
