@@ -4,10 +4,10 @@ import streamlit as st
 st.title('Anomaly Detection')
 
 #!pip install fbprophet
-#@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
+@st.cache(allow_output_mutation=True, suppress_st_warning=True)#for streamlit
 
-#import os
-#os.environ['KMP_DUPLICATE_LIB_OK']='True'
+import os
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
 
 
 import matplotlib as mpl
