@@ -19,6 +19,6 @@ SentencePiece
 
 
 #Anomaly Detection
-fbprophet
+pip install fbprophet
 #plotly
 #matplotlib
