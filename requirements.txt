@@ -21,6 +21,7 @@ SentencePiece
 #Anomaly Detection
 pip
 streamlit
-pip install fbprophet
+#pip install fbprophet
 #plotly
 #matplotlib
+fbprophet
