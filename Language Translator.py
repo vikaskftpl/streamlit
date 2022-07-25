@@ -12,11 +12,11 @@ def download_model():
     tokenizer = MBart50Tokenizer.from_pretrained(model_name)
     return model, tokenizer
 
-st.title('1. Translate to Hindi or Marathi')#for streamlit
+st.title('Translate to Hindi or Marathi')#for streamlit
 text = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
-if st.button('English to Hindi Translation'):#for streamlit
+if st.button('Translate to Hindi'):#for streamlit
     if text == '':#for streamlit
         st.write('Please enter English text for translation') #for streamlit
     else: 
@@ -43,3 +43,6 @@ if st.button('Translate to Marathi'):#for streamlit
         st.write('', str(out).strip('][\''))#for streamlit
         
 else: pass
+st.download_button(label="Download Text", data=text,mime="text",file_name="Translation.txt")
+if st.button('Clear output'):
+    st.text_area.empty()
