@@ -12,50 +12,34 @@ def download_model():
     tokenizer = MBart50Tokenizer.from_pretrained(model_name)
     return model, tokenizer
 
-st.title('1. ANY language to English Translator')#for streamlit
+st.title('1. Translate to Hindi or Marathi')#for streamlit
 text = st.text_area("Enter Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
-if st.button('Translate to English'):#for streamlit
+if st.button('English to Hindi Translation'):#for streamlit
     if text == '':#for streamlit
-        st.write('Please enter Hindi text for translation') #for streamlit
+        st.write('Please enter English text for translation') #for streamlit
     else: 
         model_name = "facebook/mbart-large-50-many-to-many-mmt"
-        tokenizer.src_lang = "hi_IN"
+        tokenizer.src_lang = "en_XX"
         encoded_hindi_text = tokenizer(text, return_tensors="pt")
-        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["en_XX"])
+        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["hi_IN""])
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
         ###
-st.title('2. ¿Quieres traducirlo al español?')#for streamlit
+st.title('2. English to Marathi Translation')#for streamlit
 text = st.text_area("Enter English Text:", value='', height=None, max_chars=None, key=None)
 model, tokenizer = download_model()#for streamlit
 
-if st.button('Translate to Spanish'):#for streamlit
+if st.button('Translate to Marathi'):#for streamlit
     if text == '':#for streamlit
-        st.write('English text has been translated into Spanish') #for streamlit
+        st.write('English text has been translated into Marathi') #for streamlit
     else: 
         model_name = "facebook/mbart-large-50-many-to-many-mmt"
         tokenizer.src_lang = "en_XX"
         encoded_hindi_text = tokenizer(text, return_tensors="pt")
-        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["es_XX"])
+        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["mr_IN"])
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
         #####
-st.title('3. Vous voulez le traduire en espagnol ?')#for streamlit
-text = st.text_area("Enter French Text:", value='', height=None, max_chars=None, key=None)
-model, tokenizer = download_model()#for streamlit
-
-if st.button('Translate to French'):#for streamlit
-    if text == '':#for streamlit
-        st.write('English text has been translated into French') #for streamlit
-    else: 
-        model_name = "facebook/mbart-large-50-many-to-many-mmt"
-        tokenizer.src_lang = "en_XX"
-        encoded_hindi_text = tokenizer(text, return_tensors="pt")
-        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["fr_XX"])
-        out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
-        st.write('', str(out).strip('][\''))#for streamlit    
-        
-        
 else: pass
