@@ -23,7 +23,7 @@ if st.button('English to Hindi Translation'):#for streamlit
         model_name = "facebook/mbart-large-50-many-to-many-mmt"
         tokenizer.src_lang = "en_XX"
         encoded_hindi_text = tokenizer(text, return_tensors="pt")
-        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["hi_IN""])
+        generated_tokens = model.generate(**encoded_hindi_text, forced_bos_token_id=tokenizer.lang_code_to_id["hi_IN"])
         out = tokenizer.batch_decode(generated_tokens, skip_special_tokens=True)
         st.write('', str(out).strip('][\''))#for streamlit
         ###
