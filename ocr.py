@@ -17,7 +17,7 @@ import PIL
 from PIL import Image
 from googletrans import Translator
 import easyocr
-reader = easyocr.Reader(['en']) #IMP 'hi'
+reader = easyocr.Reader(['hi']) #IMP 'en'
 translator = Translator()
 import pandas as pd
 
